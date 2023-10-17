@@ -3,6 +3,8 @@ header {
     height: 100px;
 }
 main {
+    display: flex;
+    flex-direction: column;
     background-color: darkseagreen;
     height: 800px;
 }
@@ -14,4 +16,8 @@ section {
 h1 {
     float: left;
     margin-left: 30px;
+}
+img {
+    height: 300px;
+    width: 300px;
 }
