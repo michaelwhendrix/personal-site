@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Heads Up</title>
+        <style>
+            h1 {
+                text-align: center;
+            }
+            .area-block {
+                display: inline;
+                margin: 10px;
+            }
+            section {
+                margin: 20px;
+                height: 210px;
+                width: 700px;
+                padding-left: 20px;
+                background-color: darkgreen;
+            }
+            p {
+                display: inline;
+                font-size: 150px;
+                color: antiquewhite;
+            }
+            button {
+                height: 50px;
+                width: 100px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Heads Up Poker</h1>
+        <button onclick="dealGame()">DEAL</button>
+        <div class="area-block">
+        <h2>Dealer</h2>
+        <section>
+            <p id="dealer-hand"></p>
+        </section>
+        </div>
+        <div class="area-block">
+        <h2>Player</h2>
+        <section>
+            <p id="player-hand"></p>
+        </section>
+        </div>
+    </body>
+    <script>
+    function dealGame() {
+        document.getElementById("player-hand").innerHTML = "";
+        document.getElementById("dealer-hand").innerHTML = "";
+        let i = 1;
+        let dealCardTo = false;
+        let spentDeck = [];
+        const omitCards = [127148,127151,127152,127164,127167,127168,127180,127183,127184,127196];
+        while(i < 11) {
+            let omitCardFlag = false;
+            let cardDealt = Math.floor(Math.random()* (127199 - 127137) + 127137);
+            for(let j = 0; j < 10; j++){
+                if(cardDealt == omitCards[j]) {
+                    omitCardFlag = true;
+                }
+            }
+            for(let k = 0; k < spentDeck.length; k++){
+                if(cardDealt == spentDeck[k]) {
+                    omitCardFlag = true;
+                }
+            }
+            if(omitCardFlag == false){
+                allCards = "&#" + cardDealt.toString() + " ";
+                if(dealCardTo == false){
+                    document.getElementById("player-hand").innerHTML += allCards;
+                    dealCardTo = true;
+            }
+                else {
+                    document.getElementById("dealer-hand").innerHTML += allCards;
+                    dealCardTo = false;
+            }
+            spentDeck.push(cardDealt);
+            i++;
+            }
+        }
+    }
+    </script>
+</html>

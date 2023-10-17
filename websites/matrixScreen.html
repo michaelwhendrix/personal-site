@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Matrix Screen</title>
+        <style>
+            section {
+                width: 960px;
+                background-color: black;
+            }
+            div {
+                column-count: 10;
+                column-gap: 70px;
+                font-size: 40px;
+                line-height: 40px;
+                color: rgb(153, 255, 0);
+            }
+            button {
+                height: 70px;
+                width: 170px;
+                margin: 20px;
+                font-size: 40px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Matrix Screen</h1>
+            <button onclick="startMatrix()">START</button>
+        </header>
+        <main>
+            <section>
+               <div id="line">F G E Y H U X Z J H G B I K J Y E S E N P Y C F H J U T E D B H Q W S D S E C G Y G T B U N Y G R G Y H J I K J K T G F D B N J Y Z D E O L M J Y U G Y R C V X C E D B H Q W S D S E C G Y G T B U N Y G R G Y H J I K J K T G F D B N J Y Z D F G E Y H U X Z J H G B I K J Y E S E N P Y C F H J U T E D B H Q W S D S E C G Y G T B U N Y G R G Y H J I K J K T G F D B N J Y Z D E O D</div>
+            </section>    
+        </main>
+    </body>
+    <script>
+    function startMatrix() {
+        let count = 0;
+        function moveLetter() {
+            let lineStart = document.getElementById("line");
+            let lineArray = lineStart.innerText.split(" ");
+            let lastLetter = lineArray.pop();
+            lineArray.unshift(lastLetter);
+            //let randomLetter = Math.floor(Math.random() * (122 - 50)) + 50;
+            //let gap = " " + String.fromCharCode(randomLetter) + " ";
+            lineStart.innerHTML = lineArray.join(" ");
+            count+= 1;
+            if(count > 100) {clearInterval(myInterval);}
+        }
+        let myInterval = setInterval(moveLetter,80);
+    }
+    </script>
+</html>

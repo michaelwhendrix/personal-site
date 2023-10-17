@@ -6,7 +6,7 @@ main {
     display: flex;
     flex-direction: column;
     background-color: darkseagreen;
-    height: 800px;
+    height: 900px;
 }
 section {
     float: right;
@@ -20,4 +20,7 @@ h1 {
 img {
     height: 300px;
     width: 300px;
+}
+a {
+    font-size: 30px;
 }
