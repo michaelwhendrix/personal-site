@@ -1,0 +1,1 @@
+A personal website for Michael Hendrix with a Home page, About page and Portfolio page.
